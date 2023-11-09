@@ -1,0 +1,119 @@
+/* Backdrop styles */
+#isf-backdrop {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1000; 
+}
+
+#isf-iframe-container {
+    position: fixed;
+    top: 0;
+    right: 0; 
+    width: 90%; 
+    height: 100%;
+    background: #FFF; 
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 1001; /* Above the backdrop */
+    transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1); 
+    transform: translateX(100%); 
+}
+
+#isf-iframe-container.active {
+    transform: translateX(0%);
+}
+
+#isf-iframe-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+#isf-iframe-container .title-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: black;
+    color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px; 
+}
+#isf-iframe-container .titleWrapper{
+    float: left;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 0 30px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; 
+    
+}
+
+#isf-iframe-container .lock-icon {
+    position: absolute;
+    left: 5px;
+    padding: 0 5px;
+    width: 35px; 
+    height: 100%; 
+    color: rgb(80, 252, 80);
+    stroke: currentColor;  
+    display: flex;
+    align-items: center;
+}
+
+#isf-iframe-container .title {
+    display: block;
+    margin-bottom: 2px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; 
+    line-height: 1rem;
+}
+
+#isf-iframe-container .url {
+    display: block; 
+    color: #ffffff85; 
+    font-size: 0.9em; 
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; 
+    font-weight: 500;
+}
+
+#isf-iframe-container .iframe-button {
+    cursor: pointer;
+    color: #fff;
+    background: #444;
+    border: none;
+    padding: 5px 5px;
+    margin-left: 5px;
+    font-size: 0.5rem;
+}
+#isf-iframe-container .iframe-button svg {
+    display: inline-block;
+    width: 20px; 
+    height: 20px; 
+    stroke: currentColor; 
+}
+/* Adjust iframe top position to not overlap the title bar */
+#isf-iframe-container iframe {
+    position: absolute;
+    top: 55px; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+html.no-scroll, body.no-scroll {
+    overflow: hidden; 
+    height: 100%; 
+}
